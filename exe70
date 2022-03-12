@@ -1,0 +1,20 @@
+preco = total = caros = menor = cont = 0
+barato = ''
+while True:
+    nome = str(input('qual o nome do produto: ')).strip()
+    preco = float(input('qual o valor do produto: '))
+    cont += 1
+    total += preco
+    if cont == 1 or preco < menor:
+        menor = preco
+        barato = nome
+    if preco > 1000:
+        caros += 1
+    resp = ' '
+    while resp not in 'SN':
+        resp = str(input('deseja continuar [S/N]: ')).strip().upper()[0]
+    if resp == 'N':
+        break
+print(f'total da compra = R${total:.2f}')
+print(f'{caros} produto acima de R$1000,00')
+print(f'o produto mais barato foi {barato}')
